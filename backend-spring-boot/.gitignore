@@ -1,0 +1,139 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Ignored default folder with query files
+/queries/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# ==============================================================================
+# 1. ORIGINAL files
+# ==============================================================================
+.idea/shelf/
+.idea/workspace.xml
+.idea/httpRequests/
+.idea/queries/
+.idea/dataSources/
+.idea/dataSources.local.xml
+
+# ==============================================================================
+# 2. INTELLIJ IDEA
+# ==============================================================================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/resources/
+!**/src/test/resources/
+
+# ==============================================================================
+# 3. COMPILATION & JAVA
+# ==============================================================================
+*.class
+*.log
+*.ctxt
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ==============================================================================
+# 4. SPRING BOOT & BUILD TOOLS
+# ==============================================================================
+target/
+bin/
+build/
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Gradle
+.gradle/
+gradlew
+gradlew.bat
+gradle/wrapper/gradle-wrapper.properties
+gradle-app.html
+
+# Logs e reports
+/logs/
+*.log
+.crash/
+
+# ==============================================================================
+# 5. DOCKER & ENVIRONMENT FILES
+# ==============================================================================
+.docker/
+docker-data/
+postgres-data/
+mysql-data/
+mongo-data/
+
+.env
+.env.local
+.env.*.local
+
+# ==============================================================================
+# 6. DATABASE & SQL CLIENTS
+# ==============================================================================
+*.sql
+*.db
+*.sqlite
+.database/
+
+# ==============================================================================
+# 7. OS
+# ==============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Ehthumbs.db
+[Dd]esktop.ini
