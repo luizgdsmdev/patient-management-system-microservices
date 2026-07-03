@@ -2,9 +2,9 @@ package com.pm.backendspringboot.dto;
 
 /**
  * @description DTO for Patient entity, containing all fields available in the database.
- * If you want to restrict the fields returned, use the PatientDTOPartial class.
+ * If you want to restrict the fields returned, use the PatientResponseDTOPartial class.
  */
-public class PatientDTO {
+public class PatientResponseDto {
 
     private String id;
     private String firstName;

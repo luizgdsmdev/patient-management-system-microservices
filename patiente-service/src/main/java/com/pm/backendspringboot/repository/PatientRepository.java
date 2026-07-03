@@ -11,4 +11,7 @@ import java.util.UUID;
  * rely on UUID for the primary key.
  */
 @Repository
-public interface PatientRepository extends JpaRepository<Patient, UUID> {}
+public interface PatientRepository extends JpaRepository<Patient, UUID> {
+    boolean existsByEmail(String email);//Validation for any possible duplicate email
+}
+

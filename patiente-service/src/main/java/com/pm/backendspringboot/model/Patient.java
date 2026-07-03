@@ -17,35 +17,35 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @NotNull
-    @Size(max = 30, min = 1)
+    @NotEmpty(message = "First name cannot be empty")
+    @Size(max = 30, min = 1, message = "First name must be between 1 and 30 characters")
     private String firstName;
 
-    @NotNull
-    @Size(max = 30, min = 1)
+    @NotEmpty(message = "Last name cannot be empty")
+    @Size(max = 30, min = 1, message = "Last name must be between 1 and 30 characters")
     private String lastName;
 
-    @NotNull
-    @Email
-    @Size(max = 60, min = 1)
+    @NotEmpty(message = "Email cannot be empty")
+    @Email(message = "Email must be valid")
+    @Size(max = 60, min = 1, message = "Email must be between 1 and 60 characters")
     @Column(unique = true)
     private String email;
 
-    @NotNull
-    @Size(max = 120, min = 1)
+    @NotEmpty(message = "Address cannot be empty")
+    @Size(max = 120, min = 1, message = "Address must be between 1 and 120 characters")
     private String address;
 
-    @NotNull
+    @NotNull(message = "Birth date cannot be null")
     private LocalDate birthDate;
 
-    @NotNull
+    @NotNull(message = "Active cannot be null")
     private Boolean active;
 
-    @NotNull
+    @NotNull(message = "Registration date cannot be null")
     @CreationTimestamp
     private LocalDate registrationDate;
 
-    @NotNull
+    @NotNull(message = "Last update cannot be null")
     @UpdateTimestamp
     private LocalDate lastUpdate;
 

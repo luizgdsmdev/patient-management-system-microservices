@@ -3,9 +3,9 @@ package com.pm.backendspringboot.dto;
 /**
  * @description DTO for Patient entity, containing only the necessary fields.
  * Including only id, firstName, lastName, email, and active.
- * This is used for a more restricted view of the patient. For a complete view, use the PatientDTO class.
+ * This is used for a more restricted view of the patient. For a complete view, use the PatientResponseDto class.
  */
-public class PatientDTOPartial {
+public class PatientResponseDTOPartial {
 
     private String id;
     private String firstName;

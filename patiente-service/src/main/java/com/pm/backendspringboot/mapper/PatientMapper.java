@@ -1,47 +1,66 @@
 package com.pm.backendspringboot.mapper;
 
-import com.pm.backendspringboot.dto.PatientDTO;
-import com.pm.backendspringboot.dto.PatientDTOPartial;
+import com.pm.backendspringboot.dto.PatientRequestDTO;
+import com.pm.backendspringboot.dto.PatientResponseDTOPartial;
+import com.pm.backendspringboot.dto.PatientResponseDto;
 import com.pm.backendspringboot.model.Patient;
+
+import java.time.LocalDate;
 
 public class PatientMapper {
 
     /**
-     * @description Maps a partial Patient entity to a response PatientDTO, listing only the necessary fields.
+     * @description Maps a partial Patient entity to a response PatientResponseDto, listing only the necessary fields.
      * Including only id, firstName, lastName, email, and active.
      * @param patient entity
-     * @return PatientDTOPartial
+     * @return PatientResponseDTOPartial
      */
-    public static PatientDTOPartial toPartialPatientDTO(Patient patient){
-        PatientDTOPartial PatientDTOPartial = new PatientDTOPartial();
-        PatientDTOPartial.setId(patient.getId().toString());
-        PatientDTOPartial.setFirstName(patient.getFirstName());
-        PatientDTOPartial.setLastName(patient.getLastName());
-        PatientDTOPartial.setEmail(patient.getEmail());
-        PatientDTOPartial.setActive(patient.getActive().toString());
+    public static PatientResponseDTOPartial toPartialPatientDTO(Patient patient){
+        PatientResponseDTOPartial PatientResponseDTOPartial = new PatientResponseDTOPartial();
 
-        return PatientDTOPartial;
+        PatientResponseDTOPartial.setId(patient.getId().toString());
+        PatientResponseDTOPartial.setFirstName(patient.getFirstName());
+        PatientResponseDTOPartial.setLastName(patient.getLastName());
+        PatientResponseDTOPartial.setEmail(patient.getEmail());
+        PatientResponseDTOPartial.setActive(patient.getActive().toString());
+
+        return PatientResponseDTOPartial;
     }
 
     /**
-     * @description Maps a complete Patient entity to PatientDTO, all fields included.
+     * @description Maps a complete Patient entity to PatientResponseDto, all fields included.
      * @param patient entity
-     * @return PatientDTO
+     * @return PatientResponseDto
      */
-    public static PatientDTO toPatientDTO(Patient patient){
-        PatientDTO patientDTO = new PatientDTO();
+    public static PatientResponseDto toPatientDTO(Patient patient){
+        PatientResponseDto patientResponseDto = new PatientResponseDto();
 
-        patientDTO.setId(patient.getId().toString());
-        patientDTO.setFirstName(patient.getFirstName());
-        patientDTO.setLastName(patient.getLastName());
-        patientDTO.setEmail(patient.getEmail());
-        patientDTO.setActive(patient.getActive().toString());
-        patientDTO.setAddress(patient.getAddress());
-        patientDTO.setBirthDate(patient.getBirthDate().toString());
-        patientDTO.setRegistrationDate(patient.getRegistrationDate().toString());
-        patientDTO.setLastUpdate(patient.getLastUpdate().toString());
+        patientResponseDto.setId(patient.getId().toString());
+        patientResponseDto.setFirstName(patient.getFirstName());
+        patientResponseDto.setLastName(patient.getLastName());
+        patientResponseDto.setEmail(patient.getEmail());
+        patientResponseDto.setActive(patient.getActive().toString());
+        patientResponseDto.setAddress(patient.getAddress());
+        patientResponseDto.setBirthDate(patient.getBirthDate().toString());
+        patientResponseDto.setRegistrationDate(patient.getRegistrationDate().toString());
+        patientResponseDto.setLastUpdate(patient.getLastUpdate().toString());
 
 
-        return patientDTO;
+        return patientResponseDto;
+    }
+
+    public static Patient toPatientEntity(PatientRequestDTO patientRequestDTO){
+        Patient patient = new Patient();
+
+        patient.setFirstName(patientRequestDTO.getFirstName());
+        patient.setLastName(patientRequestDTO.getLastName());
+        patient.setEmail(patientRequestDTO.getEmail());
+        patient.setAddress(patientRequestDTO.getAddress());
+        patient.setBirthDate(LocalDate.parse(patientRequestDTO.getBirthDate()));
+        patient.setActive(patientRequestDTO.getActive());
+        patient.setRegistrationDate(LocalDate.now());
+        patient.setLastUpdate(LocalDate.now());
+
+        return patient;
     }
 }

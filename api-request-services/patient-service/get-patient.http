@@ -9,6 +9,7 @@
 #     "lastName": "Doe"
 #   }
 # ]
+# Receive an empty list in case there's no patient
 GET http://localhost:4000/patients/all
 
 ### GET request to all patients, with ful information
@@ -26,4 +27,78 @@ GET http://localhost:4000/patients/all
 #         "registrationDate": "2024-01-10"
 #     }
 # ]
+# Receive an empty list in case there's no patient
 GET http://localhost:4000/patients/all/full
+
+
+### GET single patient by ID
+# HTTP/1.1 200
+# [
+#     {
+#         "active": "true",
+#         "address": "123 Main St, Springfield",
+#         "birthDate": "1985-06-15",
+#         "email": "john.doe@ example.com",
+#         "firstName": "John",
+#         "id": "123e4567-e89b-12d3-a456-426614174000",
+#         "lastName": "Doe",
+#         "lastUpdate": "2024-01-10",
+#         "registrationDate": "2024-01-10"
+#     }
+# ]
+#
+# HTTP/1.1 404
+# {
+#   "status": 404,
+#   "timestamp": "2026-07-03T14:31:33.372610600Z",
+#   "message": "Patient with ID 123e4567-e89b-12d3-a456-042661417400 not fund.",
+#   "path": "/patients/123e4567-e89b-12d3-a456-42661417400"
+# }
+#
+# HTTP/1.1 400
+# {
+#   "status": 400,
+#   "timestamp": "2026-07-03T14:34:01.942474900Z",
+#   "message": "The parameter 'id' received and invalid value or format. Check the expected fields.",
+#   "path": "/patients/123e4567-e89b-12d3-a456-4266141740000"
+# }
+GET http://localhost:4000/patients/123e4567-e89b-12d3-a456-4266141740000
+
+
+### POST Add single patient
+# HTTP/1.1 200
+# {
+#  "active": "true",
+#   "address": "Springfield",
+#   "birthDate": "1985-06-15",
+#   "email": "johasnnn.doe@ example.com",
+#   "firstName": "John",
+#   "id": "b654f8f1-75ff-4f5f-858b-e70b26c516a0",
+#   "lastName": "Doe",
+#   "lastUpdate": "2026-07-03",
+#   "registrationDate": "2026-07-03"
+# }
+#
+# HTTP/1.1 409
+# {
+#   "status": 409,
+#   "timestamp": "2026-07-03T16:06:01.780304100Z",
+#   "message": "E-mail invalid, value already exists and cannot be duplicated.",
+#   "path": "/patients"
+# }
+#
+# HTTP/1.1 400
+# {
+#   "address": "Address cannot be empty"
+# }
+POST http://localhost:4000/patients
+Content-Type: application/json
+
+{
+  "active": true,
+  "birthDate": "1985-06-15",
+  "address": "123 Main St, Springfield",
+  "email": "johnn.doe@example.com",
+  "firstName": "John",
+  "lastName": "Doe"
+}
