@@ -8,6 +8,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDate;
 import java.util.UUID;
 
+/**
+ * @description Patient entity, containing all fields with validation annotations.
+ */
 @Entity
 public class Patient {
     @Id

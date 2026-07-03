@@ -1,0 +1,29 @@
+### GET request to all patients, with limited information on response
+# HTTP/1.1 200
+# [
+#   {
+#     "active": "true",
+#     "email": "john.doe@ example.com",
+#     "firstName": "John",
+#     "id": "123e4567-e89b-12d3-a456-426614174000",
+#     "lastName": "Doe"
+#   }
+# ]
+GET http://localhost:4000/patients/all
+
+### GET request to all patients, with ful information
+# HTTP/1.1 200
+# [
+#     {
+#         "active": "true",
+#         "address": "123 Main St, Springfield",
+#         "birthDate": "1985-06-15",
+#         "email": "john.doe@ example.com",
+#         "firstName": "John",
+#         "id": "123e4567-e89b-12d3-a456-426614174000",
+#         "lastName": "Doe",
+#         "lastUpdate": "2024-01-10",
+#         "registrationDate": "2024-01-10"
+#     }
+# ]
+GET http://localhost:4000/patients/all/full
